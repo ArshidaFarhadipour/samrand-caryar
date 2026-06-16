@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Website</title>
+
+<style>
+
+/* ================= RESET ================= */
+
+@font-face{
+    font-family:yekan;
+    src:url("1.ttf") format("truetype");
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: yekan;
+    min-width:0;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    position:fixed;
+    top:24px;
+    left:50%;
+    padding:5px 24px;
+    transform:translateX(-50%);
+    width:97%;
+    max-width:1424px;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(4,25,44,.8);
+    backdrop-filter:blur(18px);
+    border:1px solid #1E2F3F;
+    border-radius:100px;
+    z-index:10000;
+
+    flex-wrap:nowrap; /* فقط برای جلوگیری از بهم ریختگی */
+}
+
+.header-right{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:16px;
+    position: relative;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+
+.logo img{
+    width:70px;
+    height:auto;
+    display:block;
+    height:30px;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    z-index:9999;
+
+}
+
+.menu a{
+    text-decoration:none;
+    color:#dbeafe;
+    padding:11px 16px;
+    border-radius:14px;
+    font-size:18px;
+    transition:.3s;
+    position:relative;
+}
+
+.menu a:hover{
+    color:#EC5504;
+}
+
+.menu a.active{
+    color:#EC5504;
+}
+
+.menu a.active::before{
+    content:"";
+    position:absolute;
+    top:-7px;
+    left:50%;
+    transform:translateX(-50%);
+    width:80%;
+    height:5px;
+    background:#EC5504;
+    border-radius:100px;
+}
+
+.header-left{
+    direction:ltr;
+    display:flex;
+    flex-direction:row;
+    gap:16px;
+    height:36px;
+}
+
+.login-button{
+    width:36px;
+    height:36px;
+    border-radius:100px;
+    display:block;
+}
+
+.login-button img{
+    width:36px;
+    height:36px;
+    top:3px;
+    left:3px;
+
+}
+
+.charge{
+    width:120px;
+    height:36px;
+    border-radius:100px;
+    border:#EC5504 solid 1px;
+    text-decoration:none;
+    color:#EC5504;
+    font-size:18px;
+    background-color:#FFFFFF;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+.phonenumber{
+    text-decoration:none;
+    color:white;
+    font-size:18px;
+    padding-bottom:7px;
+    left:2px;
+
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    min-height:100dvh;
+    padding:150px 7%;
+}
+
+#home{
+    background-image:url(background.svg);
+    background-size:100% auto;
+    background-position:50% 40%;
+    background-repeat:no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#aboutus{background:red;}
+#products{background:green;}
+#licenses{background:blue;}
+#contactus{background:orange;}
+
+/* ================= HERO BOX ================= */
+
+.image-content{
+    width:100%;
+    max-width:700px;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:13px;
+    padding:24px 24px 32px;
+    background:#0000005E;
+    backdrop-filter:blur(10px);
+    border-radius:12px;
+    text-align:center;}
+
+
+h1{
+    width:100%;
+    max-width:933px;
+    font-size:60px;
+    color:#EC5504;
+    font-weight:950;
+    line-height:1.2;
+    text-align:center;
+}
+
+p{
+    width:100%;
+    max-width:600px;
+    font-weight:700;
+    font-size:33px;
+    line-height:1.5;
+    color:white;
+}
+
+.information{
+    text-decoration:none;
+    display:flex;
+    width:150px;
+    height:36px;
+    border-radius:100px;
+    padding:10px;
+    border:1px solid #EC5504;
+    background-color:white;
+    color:#EC5504;
+    font-weight:bold;
+    font-size:18px;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ================= HAMBURGER (فقط آماده، بدون تغییر طراحی) ================= */
+
+.hamburger{
+    display:none;
+    font-size:26px;
+    background:none;
+    border:none;
+    color:white;
+    cursor:pointer;
+    z-index:10001;
+  
+}
+
+.phoneitems img{
+    width:24px;
+    height:24px;
+    position: relative;
+    top:7px;
+
+
+}
+
+
+
+
+
+/* Tablet */
+@media (max-width:768px){
+
+    
+
+
+
+ .header{ 
+          height:60px;
+          top:0px; 
+          left:0px; 
+          right:0px;
+          width:100%; 
+          max-width:none;
+          transform:none; 
+          border-radius:0; 
+          padding:12px 8px;
+         position:fixed;}
+        
+  .menu{ 
+            position:absolute; 
+            top:60px; 
+            right:0; 
+            width:220px;
+             height:300px; 
+             display:none; 
+             flex-direction:column; 
+             background:#04192C; 
+             border:1px solid #1E2F3F; 
+             border-radius:16px; 
+             padding:12px; 
+             z-index:99999; } 
+         .menu.open{
+                 display:flex; } 
+         .hamburger{ 
+            display:block; 
+            position:absolute;
+            right:16px;
+            top:50%; 
+            transform:translateY(-50%);
+            font-size:26px; 
+            background:none;
+            border:none;
+            color:white; 
+            cursor:pointer;
+            z-index:10003; 
+            } 
+
+
+
+            .header-left{ 
+            position:absolute; 
+            left:16px;
+             top:50%; 
+             transform:translateY(-50%); } 
+
+            
+             .header-right{ 
+                position: relative;
+                width:100% } 
+
+
+            .logo{
+                position: absolute;
+                left:50%;
+                transform: translateX(-50%);
+                
+            }
+        .phonenumber{
+            display: none;
+        }
+        .charge{
+            display: none;
+        }
+        .phoneitems img{
+            display: none;
+        }
+    }
+
+
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="header-right">
+
+        <a href="#home" class="logo">
+            <img src="Logo 3.svg">
+        </a>
+
+        <button class="hamburger" id="hamburger">☰</button>
+
+        <nav class="menu" id="menu">
+            <a href="#home" class="active">خانه</a>
+            <a href="#aboutus">درباره ما</a>
+            <a href="#products">محصولات</a>
+            <a href="#licenses">مجوز ها</a>
+            <a href="#contactus">تماس با ما</a>
+        </nav>
+
+    </div>
+
+    <div class="header-left">
+        <a href="#" class="login-button">
+            <img src="Login Button.svg">
+        </a>
+
+        <a href="#" class="charge">شارژ ردیاب</a>
+        <div class="phoneitems">
+
+        <img src="Vector.svg">
+
+        <a href="tel:02177294854" class="phonenumber">۰۲۱-۷۷۲۹۴۸۵۴</a>
+        </div>
+    </div>
+
+    
+    
+
+</header>
+
+<section class="section" id="home">
+    <div class="image-content">
+        <h1>نبض ناوگان روی نقشه</h1>
+        <p>کاریار ابزار ردیابی لحظه‌ای خودروها، کنترل مسیرها و مدیریت هوشمند حمل‌ونقل</p>
+        <a href="#" class="information">اطلاعات بیشتر</a>
+    </div>
+</section>
+
+<section class="section" id="aboutus">درباره ما</section>
+<section class="section" id="products">محصولات</section>
+<section class="section" id="licenses">مجوز</section>
+<section class="section" id="contactus">تماس با ما</section>
+
+
+
+
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+
+hamburger.addEventListener("click", () => {
+    alert("clicked");
+    menu.classList.toggle("open");
+});
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".menu a");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            const id = entry.target.id;
+
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if(link.getAttribute("href") === "#" + id){
+                    link.classList.add("active");
+                }
+            });
+        }
+    });
+}, {rootMargin:"-40% 0px -40% 0px"});
+
+sections.forEach(sec => observer.observe(sec));
+</script>
+
+</body>
+</html>
